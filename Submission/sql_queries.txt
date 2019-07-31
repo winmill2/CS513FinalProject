@@ -1,0 +1,24 @@
+//check to make sure lat and long are not null in Market table
+select *
+from Market
+where Lat is null
+
+select *
+from Market
+where Long is null
+
+//check FMID is unique for all entries
+select FMID
+from Market
+oder by FMID
+
+select FMID
+from Products
+oder by FMID
+
+select FMID
+from Season
+oder by FMID
+
+
+

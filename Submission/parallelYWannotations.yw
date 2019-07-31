@@ -1,0 +1,112 @@
+#@begin Parallel_OR #@desc Parallel OpenRefine Workflow
+#@param expression:value.toDate()
+#@param expression:grel:"https://www.facebook.com/"_+_value_+_"/"
+#@param expression:grel:"https://www.twitter.com/"_+_value_+_"/"
+#@param expression:value
+#@param expression:value.toNumber()
+#@in County
+#@in city
+#@in OtherMedia
+#@in y
+#@in MarketName
+#@in Facebook_1
+#@in updateTime
+#@in Facebook
+#@in Twitter
+#@in street
+#@in street_1
+#@in Twitter_1
+#@in street_2
+#@in Website
+#@in x
+#@out CleanData
+#@begin core/mass-edit0 #@desc Mass edit cells in column MarketName
+#@param expression:value
+#@in MarketName
+#@out MarketName_1
+#@end core/mass-edit0
+#@begin core/mass-edit1 #@desc Mass edit cells in column street
+#@param expression:value
+#@in street
+#@out street_1
+#@end core/mass-edit1
+#@begin core/mass-edit2 #@desc Mass edit cells in column city
+#@param expression:value
+#@in city
+#@out city_1
+#@end core/mass-edit2
+#@begin core/mass-edit3 #@desc Mass edit cells in column County
+#@param expression:value
+#@in County
+#@out County_1
+#@end core/mass-edit3
+#@begin core/mass-edit4 #@desc Mass edit cells in column Website
+#@param expression:value
+#@in Website
+#@out Website_1
+#@end core/mass-edit4
+#@begin core/mass-edit5 #@desc Mass edit cells in column Facebook
+#@param expression:value
+#@in Facebook
+#@out Facebook_1
+#@end core/mass-edit5
+#@begin core/mass-edit6 #@desc Mass edit cells in column Twitter
+#@param expression:value
+#@in Twitter
+#@out Twitter_1
+#@end core/mass-edit6
+#@begin core/mass-edit7 #@desc Mass edit cells in column OtherMedia
+#@param expression:value
+#@in OtherMedia
+#@out OtherMedia_1
+#@end core/mass-edit7
+#@begin core/text-transform8 #@desc Text transform on cells in column x using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in x
+#@out x_1
+#@end core/text-transform8
+#@begin core/text-transform9 #@desc Text transform on cells in column y using expression value.toNumber()
+#@param expression:value.toNumber()
+#@in y
+#@out y_1
+#@end core/text-transform9
+#@begin core/text-transform10 #@desc Text transform on cells in column updateTime using expression value.toDate()
+#@param expression:value.toDate()
+#@in updateTime
+#@out updateTime_1
+#@end core/text-transform10
+#@begin core/mass-edit11 #@desc Mass edit cells in column street
+#@param expression:value
+#@in street_1
+#@out street_2
+#@end core/mass-edit11
+#@begin core/mass-edit12 #@desc Mass edit cells in column street
+#@param expression:value
+#@in street_2
+#@out street_3
+#@end core/mass-edit12
+#@begin core/text-transform13 #@desc Text transform on cells in column Facebook using expression grel:\"https://www.facebook.com/\" + value + \"/\"
+#@param expression:grel:"https://www.facebook.com/"_+_value_+_"/"
+#@in Facebook_1
+#@out Facebook_2
+#@end core/text-transform13
+#@begin core/text-transform14 #@desc Text transform on cells in column Twitter using expression grel:\"https://www.twitter.com/\" + value + \"/\"
+#@param expression:grel:"https://www.twitter.com/"_+_value_+_"/"
+#@in Twitter_1
+#@out Twitter_2
+#@end core/text-transform14
+#@begin CombineDataCleaningChanges
+#@in MarketName_1
+#@in street_3
+#@in city_1
+#@in County_1
+#@in Website_1
+#@in Facebook_2
+#@in Twitter_2
+#@in OtherMedia_1
+#@in x_1
+#@in y_1
+#@in updateTime_1
+#@out CleanData
+#@end CombineDataCleaningChanges
+#@end Parallel_OR
